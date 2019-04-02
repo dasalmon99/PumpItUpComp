@@ -9,7 +9,7 @@ functional needs repair - the waterpoint is operational, but needs repairs\
 non functional - the waterpoint is not operational
 
 # General Approach
-The general approach I had to this data set was first to drop many of the redundant or ill-defined variables(there are, for example, 9 different columns describing geographing location, where a simple lat and long will do. Not much needed to be done in the way of feature engineering. One column is created, 'days_elapsed,' which describes the number of days that have elapsed since the entry was recorded to present day. Finally, many values were missing from the gps_height, latitude, longitude construction year. Missing values were replaced with the medians of those columns. 
+The general approach I had to this data set was first to drop many of the redundant or ill-defined variables(there are, for example, 9 different columns describing geographing location, where a simple lat and long will do). Not much needed to be done in the way of feature engineering. One column is created, 'days_elapsed,' which describes the number of days that have elapsed since the entry was recorded to present day. Finally, many values were missing from the gps_height, latitude, longitude construction year. Missing values were replaced with the medians of those columns. 
 
 # Dataset Variables
 amount_tsh - Total static head (amount water available to waterpoint)\
