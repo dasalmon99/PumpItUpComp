@@ -9,7 +9,7 @@ Possible conditions are:
 * non functional - the waterpoint is not operational
 
 # General Approach
-The general approach I had to this data set was first to drop the many redundant or ill-defined variables (there are, for example, 9 different columns describing geographing location, where a simple lat and long will do). The list of dropped columns:
+First step was to drop the many redundant or ill-defined variables (there are, for example, 9 different columns describing geographing location, where a simple lat and long will do). The list of dropped columns:
   * Ill-defined variables or ones containing no information (eg, all entries are the same):'wpt_name', 'num_private', 'recorded_by', 'amount_tsh'
   * Variables that are redundant with other, similarly named columns: 'quantity', 'source_class', 'source_type', 'quality_group', 'scheme_management', 'waterpoint_type', 'extraction_type_class', 'extraction_type', 'payment_type', 'scheme_name'
   * Variables with too many unique categories: 'installer', 'funder'.
