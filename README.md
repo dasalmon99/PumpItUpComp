@@ -13,14 +13,14 @@ First step was to drop the many redundant or ill-defined variables (there are, f
   * Ill-defined variables or ones containing no information (eg, all entries are the same):'wpt_name', 'num_private', 'recorded_by', 'amount_tsh'
   * Variables that are redundant with other, similarly named columns: 'quantity', 'source_class', 'source_type', 'quality_group', 'scheme_management', 'waterpoint_type', 'extraction_type_class', 'extraction_type', 'payment_type', 'scheme_name'
   * Variables with too many unique categories: 'installer', 'funder'.
-  * Variables that describe geographic location: 'district_code', 'subvillage', 'ward', 'region','lga','region_code'
+  * Variables that describe geographic location: 'district_code', 'subvillage', 'ward', 'region', 'lga', 'region_code'
 
 However, we can use the data from 'lga' and 'region' to handle missing latitude, longitude and gps_height entries (by replacing missing values with the median values of the corresponding 'region', or 'lga', which seems to refer to a subregion). We first replace by median lga, since it the more specific location classifier, then by region for any values that are missed.
 
 ![picture alt](https://github.com/dasalmon99/PumpItUpComp/blob/master/lga%20plotted%20by%20location.png "lga plotted by location")
 ![picture alt](https://github.com/dasalmon99/PumpItUpComp/blob/master/region_code%20plotted%20by%20location.png "region_code plotted by location")
 
-Missing values from the population and construction_year columns were replaces by the medians over the entire dataset.
+Missing values from the population and construction_year columns were replaced by the medians over the entire dataset.
 
 The final bit of feature engineering came in the form of recasting 'date_recorded' as 'days_elapsed,' which describes the number of days that have elapsed since the entry was recorded to present day. 
 
