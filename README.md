@@ -15,9 +15,16 @@ The general approach I had to this data set was first to drop many of the redund
   * Variables with too many unique categories: 'installer', 'funder'.
   * Variables that describe geographic location: 'district_code', 'subvillage', 'ward', 'region','lga','region_code'
 
-However, we can use the data from 'lga' and 'region' to handle missing latitude, longitude and gps_height entries (by replacing missing values with the median values of the corresponding 'region', or 'lga', which seems to refer to a subregion).\ 
+However, we can use the data from 'lga' and 'region' to handle missing latitude, longitude and gps_height entries (by replacing missing values with the median values of the corresponding 'region', or 'lga', which seems to refer to a subregion). We first replace by median lga, since it the more specific location classifier, then by region for any values that are missed.\ 
 
-Not much needed to be done in the way of feature engineering. One column is created, 'days_elapsed,' which describes the number of days that have elapsed since the entry was recorded to present day. 
+![picture alt](https://github.com/dasalmon99/PumpItUpComp/blob/master/lga%20plotted%20by%20location.png "lga plotted by location")
+![picture alt](https://github.com/dasalmon99/PumpItUpComp/blob/master/region_code%20plotted%20by%20location.png "region_code plotted by location")
+
+Missing calues from the population and construction_year columns were replaces by the medians over the entire dataset.\
+
+The final bit of feature engineering came in the form of recasting 'date_recorded' as 'days_elapsed,' which describes the number of days that have elapsed since the entry was recorded to present day. 
+
+Finally, a RandomForestClassifier algorithm was used. A grid search cross validation scheme was used for hyperparameter search, see CrossVal.py. 
 
 # Dataset Variables
 amount_tsh - Total static head (amount water available to waterpoint)\
